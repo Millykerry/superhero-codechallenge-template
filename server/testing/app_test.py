@@ -3,6 +3,7 @@ from faker import Faker
 from server.app import app
 from server.models import db, Hero
 
+
 class TestApp:
 
     def test_gets_heroes(self):
@@ -31,4 +32,4 @@ class TestApp:
             assert data["id"] == hero.id
             assert data["name"] == hero.name
             assert data["super_name"] == hero.super_name
-            assert "powers" in data
+            assert "hero_powers" in data
