@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
+from flask_migrate import Migrate
 from server.models import db, Hero, Power
 
 app = Flask(__name__)
@@ -11,6 +12,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 # Initialize the database with this app
 db.init_app(app)
+Migrate(app, db)
 
 # ROUTES
 
